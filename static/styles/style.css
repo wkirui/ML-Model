@@ -1,0 +1,15 @@
+
+h1,h3{
+    margin: 15px 0 4px;
+    font-weight: 400;
+}
+form{
+    width: 30%;
+    padding: 50px;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 5px #ccc;
+}
+#new-predictions{
+    position: relative;
+}
