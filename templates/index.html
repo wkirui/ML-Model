@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/style.css">
     <title>ML Prediction API</title>
 </head>
 <body>
@@ -10,12 +11,13 @@
     <h3>Using RandomForest for machine learning prediction</h3>
     <p>Please enter the values below to make a prediction</p>
     <div id="new-predictions">
-        <form action="">
-            <p type='number'>Guests</p>
-            <p type='number'>Bedrooms</p>
-            <p type='number'>Bathrooms</p>
-            <p type='number'>Total Reviews</p>
-            <p type='number'>Review Score</p>
+        <form action="model_predictions.py" method="POST">
+            <label>Guests <input type="number" name ="guests" id="guest"></label>
+            <label>Bedrooms <input type="number" name='bedrooms' id="bedrooms"></label>
+            <label>Bathrooms <input type="number" name="bathrooms" id="bathrooms"></label>
+            <label>Number of Reviews </label><input type="number" name="total-reviews" id="total-reviews">
+            <label>Rating <input type="number" name="review-score" id="review-score"></label>
+            <input type="submit" value="submit">
         </form>
     </div>
 </body>
