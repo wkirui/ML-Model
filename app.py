@@ -3,6 +3,7 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect
 import pandas as pd
+import numpy as np
 import pickle
 
 app = Flask(__name__)
@@ -33,17 +34,17 @@ def predict():
     # create results dictionary
     results_dict =  {
         'is_superhost': is_superhost,'guests': guests, 'bedrooms': bedrooms,
-        'bathrooms': bathrooms, 'reviews': total_reviews,
+        'baths': bathrooms, 'reviews': total_reviews,
         'rating': review_score, 'kitchen': kitchen,
         'wifi': wifi, 'parking': parking, 'pool': pool,
         'shared_bath': shared_bath}
     # create df
     new_submission = pd.DataFrame(results_dict,index=[0])
-    print("Below is a new submission: ",'\n', new_submission)
+    # print("Below is a new submission: ",'\n', new_submission)
     
     # tranform data
     new_submission_tf = pd.get_dummies(new_submission)
-    print(new_submission_tf)
+    # print(new_submission_tf)
     
     # check missing features
     submission_features = [x for x in new_submission_tf.columns]
@@ -51,9 +52,11 @@ def predict():
     
     # add those features as dummy data
     new_submission_tf[missing_features] = 0
+    # print(new_submission_tf.columns)
+    
     # make prediction
-    predicted_price = model.predict(new_submission_tf)
-    print(predicted_price)
+    predicted_price = np.round(model.predict(new_submission_tf)[0],0)
+    print('$'+str(predicted_price))
     
     return redirect('/')
 if __name__ == "__main__":
