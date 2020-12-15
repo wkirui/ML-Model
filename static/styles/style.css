@@ -7,10 +7,15 @@ h1,h3{
     margin: 15px 0 4px;
     font-weight: 400;
 }
-form{
+h4 {
+    background-color: rgb(151, 179, 179);
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* form{
     align-items: center;
     text-align: center;
-}
+} */
 
 input{
     width: 30vw;
@@ -49,5 +54,23 @@ input[type=submit]:hover{
     margin-right: 20px;
     grid-template-columns: 20ch auto;
     grid-template-rows: auto;
+    grid-column-start: 1;
+    grid-column-end: 2;
 
+}
+#predicted-price{
+    font-size: 22px;
+    width: 30vw;
+    position:relative;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    gap: 20px;
+    text-align: center;
+    
+}
+#prediction-grid {
+    display: grid;
+}
+#predicted-value {
+    color: cadetblue;
 }
