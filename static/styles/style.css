@@ -21,6 +21,7 @@ input{
     width: 30vw;
 }
 input[type=number]{
+    /* width: 80px; */
     font-size: 18px;
     padding: 12px 20px;
     margin-left: 8px;
@@ -32,6 +33,18 @@ input[type=number]{
 input[type=number]:hover{
     background-color: rgb(227, 233, 240);
 }
+
+select {
+    width:30vw;
+    font-size: 18px;
+    padding: 12px 20px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border: 2px solid rgb(118, 160, 147);
+    box-sizing: border-box;
+    text-align: center;
+}
+
 input[type=submit]{
     font-size: 22px;
     width: 30vw;
