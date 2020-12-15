@@ -8,9 +8,9 @@ import pickle
 app = Flask(__name__)
 # load model
 model = pickle.load(open('models/model_v1.pkl','rb'))
-# load features
+# load model features
 features_df = pd.read_csv('models/feature_importances.csv')
-features_list = [x for x in features['feature']]
+features_list = [x for x in features_df['feature']]
 
 @app.route('/')
 def home():
