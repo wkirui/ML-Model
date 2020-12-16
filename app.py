@@ -58,6 +58,9 @@ def predict():
     predicted_price = np.round(model.predict(new_submission_tf)[0],0)
     print('$'+str(predicted_price))
     
-    return redirect('/')
+    # update values html
+    return render_template('index.html', predicted_value='$ {} /night'.format(predicted_price))
+    
+    # return redirect('/')
 if __name__ == "__main__":
     app.run()

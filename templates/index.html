@@ -1,63 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-    <link rel="stylesheet" type= "text/css" href= "../static/styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <link rel="stylesheet" type="text/css" href="../static/styles/style.css" />
     <title>ML Prediction API</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Machine Learning in Python</h1>
     <h3>Using RandomForest for machine learning prediction</h3>
     <p>Please enter the values below to make a prediction</p>
-    <div id="prediction-grid">
-    <div id="new-predictions">
-        <form action="/predict" method="POST">
-            <label>Guests <input type="number" name ="guests" id="guest" required="required"></label>
-            <label>Bedrooms <input type="number" name='bedrooms' id="bedrooms", required="required"></label>
-            <label>Beds <input type="number" name='beds' id="beds"></label>
-            <label>Bathrooms <input type="number" name="bathrooms" id="bathrooms" required="required"></label>
-            <label>Number of Reviews </label><input type="number" name="total-reviews" id="total-reviews" required="required">
-            <label>Rating <input type="number" name="review-score" id="review-score" required="required"></label>
-
-            <label for="is_superhost">Superhost</label>
-            <select name="is_superhost" id="is_super_host">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <label for="kitchen">Kitchen</label>
-            <select name="kitchen" id="kitchen">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <label for="shared_bath">Shared Bath</label>
-            <select name="shared_bath" id="shared_bath">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <label for="wifi">Wifi</label>
-            <select name="wifi" id="wifi">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <label for="parking">Free Parking</label>
-            <select name="parking" id="parking">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <label for="pool">Pool</label>
-            <select name="pool" id="pool">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
+    <div class="prediction-container">
+      <form action="/predict" method="POST">
+        <div id="input-values">
+          <label
+            >Guests
+            <input type="number" name="guests" id="guest" required="required"
+          /></label>
+          <label
+            >Bedrooms
+            <input
+              type="number"
+              name="bedrooms"
+              id="bedrooms"
+              required="required"
+          /></label>
+          <label
+            >Beds
+            <input type="number" name="beds" id="beds" required="required"
+          /></label>
+          <label
+            >Bathrooms
+            <input
+              type="number"
+              name="bathrooms"
+              id="bathrooms"
+              required="required"
+          /></label>
+          <label>Number of Reviews </label
+          ><input
+            type="number"
+            name="total-reviews"
+            id="total-reviews"
+            required="required"
+          />
+          <label
+            >Rating
+            <input
+              type="number"
+              name="review-score"
+              id="review-score"
+              required="required"
+          /></label>
+          <label for="is_superhost">Superhost</label>
+          <select name="is_superhost" id="is_super_host">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="kitchen">Kitchen</label>
+          <select name="kitchen" id="kitchen">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="shared_bath">Shared Bath</label>
+          <select name="shared_bath" id="shared_bath">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="wifi">Wifi</label>
+          <select name="wifi" id="wifi">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="parking">Free Parking</label>
+          <select name="parking" id="parking">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="pool">Pool</label>
+          <select name="pool" id="pool">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+      <div id="predicted-price">
+        <h4>Predicted Price</h4>
+        <!-- {{predicted_value}} -->
+        <h2 id="predicted-value">{{predicted_value}}</h2>
+      </div>
     </div>
-    <div id="predicted-price">
-        <h4>Predicted Price </h4>
-        <h2 id="predicted-value">$30</h2>
-    </div>
-</div>
-</body>
+  </body>
 </html>

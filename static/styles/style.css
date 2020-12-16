@@ -12,78 +12,21 @@ h4 {
     padding: 20px;
     box-sizing: border-box;
 }
-/* form{
-    align-items: center;
-    text-align: center;
-} */
-
-input{
-    width: 30vw;
-}
-input[type=number]{
-    /* width: 80px; */
-    font-size: 18px;
-    padding: 12px 20px;
-    margin-left: 8px;
-    margin-bottom: 10px;
-    border: 2px solid rgb(118, 160, 147);
-    box-sizing: border-box;
-    text-align: center;
-}
-input[type=number]:hover{
-    background-color: rgb(227, 233, 240);
-}
-
-select {
-    width:30vw;
-    font-size: 18px;
-    padding: 12px 20px;
-    margin-left: 8px;
-    margin-bottom: 10px;
-    border: 2px solid rgb(118, 160, 147);
-    box-sizing: border-box;
-    text-align: center;
-}
-
-input[type=submit]{
-    font-size: 22px;
-    width: 30vw;
-    padding: 12px 20px;
-    margin-left: 8px;
-    margin-top: 10px;
-
-
-}
-input[type=submit]:hover{
-    background-color:sandybrown;
-}
-#new-predictions{
-    font-size: 22px;
-    width: 30vw;
+.prediction-container{
+    margin: 2rem;
+    width: 80vw;
     display: grid;
-    gap: 20px;
-    text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    grid-template-columns: 20ch auto;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+#input-values {
+    display: block;
+    float: left;
     grid-column-start: 1;
     grid-column-end: 2;
-
 }
 #predicted-price{
-    font-size: 22px;
-    width: 30vw;
-    position:relative;
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-column-end: 3;
-    gap: 20px;
-    text-align: center;
-    
-}
-#prediction-grid {
-    display: grid;
-}
-#predicted-value {
-    color: cadetblue;
 }
