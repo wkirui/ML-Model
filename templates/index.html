@@ -17,82 +17,93 @@
     <p>Please enter the values below to make a prediction</p>
     <div class="prediction-container">
       <form action="/predict" method="POST">
-        <!-- <div id="input-values"> -->
-          <label
-            >Guests
-            <input type="number" name="guests" id="guest" required="required"
-          /></label>
-          <label
-            >Bedrooms
-            <input
-              type="number"
-              name="bedrooms"
-              id="bedrooms"
-              required="required"
-          /></label>
-          <label
-            >Beds
-            <input type="number" name="beds" id="beds" required="required"
-          /></label>
-          <label
-            >Bathrooms
-            <input
-              type="number"
-              name="bathrooms"
-              id="bathrooms"
-              required="required"
-          /></label>
-          <label>Reviews </label
-          ><input
+        <label
+          >Guests
+          <input type="number" name="guests" id="guest" required="required"
+        /></label>
+        <label
+          >Bedrooms
+          <input
+            type="number"
+            name="bedrooms"
+            id="bedrooms"
+            required="required"
+        /></label>
+        <label
+          >Beds <input type="number" name="beds" id="beds" required="required"
+        /></label>
+        <label
+          >Bathrooms
+          <input
+            type="number"
+            name="bathrooms"
+            id="bathrooms"
+            required="required"
+        /></label>
+        <label
+          >Reviews
+          <input
             type="number"
             name="total-reviews"
             id="total-reviews"
             required="required"
           />
-          <label
-            >Rating
-            <input
-              type="number"
-              name="review-score"
-              id="review-score"
-              required="required"
-          /></label>
-          <label for="is_superhost">Superhost</label>
+        </label>
+        <label
+          >Rating
+          <input
+            type="number"
+            name="review-score"
+            id="review-score"
+            required="required"
+        /></label>
+        <label
+          >Superhost
           <select name="is_superhost" id="is_super_host">
             <option value="yes">Yes</option>
             <option value="no">No</option>
-          </select>
-          <label for="kitchen">Kitchen</label>
+          </select></label
+        >
+        <label
+          >Kitchen
           <select name="kitchen" id="kitchen">
             <option value="yes">Yes</option>
             <option value="no">No</option>
-          </select>
-          <label for="shared_bath">Shared Bath</label>
+          </select></label
+        >
+        <label
+          >Shared Bath
           <select name="shared_bath" id="shared_bath">
             <option value="yes">Yes</option>
             <option value="no">No</option>
-          </select>
-          <label for="wifi">Wifi</label>
+          </select></label
+        >
+        <label
+          >Wifi
           <select name="wifi" id="wifi">
             <option value="yes">Yes</option>
             <option value="no">No</option>
-          </select>
-          <label for="parking">Free Parking</label>
+          </select></label
+        >
+        <label
+          >Free Parking
           <select name="parking" id="parking">
             <option value="yes">Yes</option>
             <option value="no">No</option>
-          </select>
-          <label for="pool">Pool</label>
+          </select></label
+        >
+        <label
+          >Pool
           <select name="pool" id="pool">
             <option value="yes">Yes</option>
             <option value="no">No</option>
-          </select>
-        <!-- </div> -->
+          </select></label
+        >
         <input type="submit" value="Submit" />
       </form>
       <div id="predicted-price">
-        <h4>Predicted Price</h4>
-        <h2 id="predicted-value">{{predicted_value}}</h2>
+        <h2 id="predicted-header">Predicted Price</h2>
+        <h4 id="predicted-value">{{predicted_value}}</h4>
       </div>
     </div>
   </body>

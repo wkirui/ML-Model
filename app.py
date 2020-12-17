@@ -52,14 +52,17 @@ def predict():
     
     # add those features as dummy data
     new_submission_tf[missing_features] = 0
-    # print(new_submission_tf.columns)
+    
+    # drop features missing from the model
+    extra_columns_to_drop = [x for x in submission_features if x not in features_list]
+    new_submission_tf = new_submission_tf.drop(extra_columns_to_drop,axis=1)
     
     # make prediction
     predicted_price = np.round(model.predict(new_submission_tf)[0],0)
     print('$'+str(predicted_price))
     
     # update values html
-    return render_template('index.html', predicted_value='$ {} /night'.format(predicted_price))
+    return render_template('index.html', predicted_value='$ {} / night'.format(predicted_price))
     
     # return redirect('/')
 if __name__ == "__main__":
