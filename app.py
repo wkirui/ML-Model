@@ -21,6 +21,7 @@ def home():
 def predict():
     guests = request.form.get('guests', type=int)
     bedrooms = request.form.get('bedrooms', type=str)
+    beds = request.form.get('beds', type=int)
     bathrooms = request.form.get('bathrooms', type=str)
     total_reviews = request.form.get('total-reviews', type=int)
     review_score = request.form.get('review-score', type=int)
@@ -33,7 +34,8 @@ def predict():
     
     # create results dictionary
     results_dict =  {
-        'is_superhost': is_superhost,'guests': guests, 'bedrooms': bedrooms,
+        'is_superhost': is_superhost,'guests': guests,
+        'bedrooms': bedrooms, 'beds': beds,
         'baths': bathrooms, 'reviews': total_reviews,
         'rating': review_score, 'kitchen': kitchen,
         'wifi': wifi, 'parking': parking, 'pool': pool,
@@ -62,7 +64,13 @@ def predict():
     print('$'+str(predicted_price))
     
     # update values html
-    return render_template('index.html', predicted_value='$ {} / night'.format(predicted_price))
+    return render_template('index.html', 
+                           predicted_value='$ {} / night'.format(predicted_price),
+                           guests = guests,bedrooms = bedrooms, beds = beds,
+                           bathrooms = bathrooms,total_reviews = total_reviews,
+                           review_score = review_score,is_superhost = is_superhost,
+                           kitchen = kitchen,shared_bath = shared_bath,
+                           wifi = wifi, free_parking = parking, pool = pool)
     
     # return redirect('/')
 if __name__ == "__main__":

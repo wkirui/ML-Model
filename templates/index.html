@@ -99,11 +99,57 @@
             <option value="no">No</option>
           </select></label
         >
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" name="submit" />
       </form>
       <div id="predicted-price">
         <h2 id="predicted-header">Predicted Price</h2>
         <h4 id="predicted-value">{{predicted_value}}</h4>
+        <h5>Data Submission</h5>
+        <table margin-left="30px" border="1" width="60%">
+          <tr>
+            <th>Guests</th>
+            <th>Bedrooms</th>
+            <th>Beds</th>
+            <th>Bathrooms</th>
+          </tr>
+          <tr>
+            <td>{{guests}}</td>
+            <td>{{bedrooms}}</td>
+            <td>{{beds}}</td>
+            <td>{{bathrooms}}</td>
+          </tr>
+        </table>
+        <br />
+        <table margin-left="30px" border="1" width="60%">
+          <tr>
+            <th>Reviews</th>
+            <th>Rating</th>
+            <th>Superhost</th>
+            <th>Kitchen</th>
+          </tr>
+          <tr>
+            <td>{{total_reviews}}</td>
+            <td>{{review_score}}</td>
+            <td>{{is_superhost}}</td>
+            <td>{{kitchen}}</td>
+          </tr>
+        </table>
+        <br />
+        <table id="prediction-table3" margin-left="30px" border="1" width="60%">
+          <tr>
+            <th>Shared Bath</th>
+            <th>Wifi</th>
+            <th>Free Parking</th>
+            <th>Pool</th>
+          </tr>
+          <tr>
+            <td>{{shared_bath}}</td>
+            <td>{{wifi}}</td>
+            <td>{{free_parking}}</td>
+            <td>{{pool}}</td>
+          </tr>
+        </table>
+        <br>
       </div>
     </div>
   </body>
