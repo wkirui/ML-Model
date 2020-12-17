@@ -17,7 +17,7 @@
     <p>Please enter the values below to make a prediction</p>
     <div class="prediction-container">
       <form action="/predict" method="POST">
-        <div id="input-values">
+        <!-- <div id="input-values"> -->
           <label
             >Guests
             <input type="number" name="guests" id="guest" required="required"
@@ -42,7 +42,7 @@
               id="bathrooms"
               required="required"
           /></label>
-          <label>Number of Reviews </label
+          <label>Reviews </label
           ><input
             type="number"
             name="total-reviews"
@@ -87,12 +87,11 @@
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
-        </div>
+        <!-- </div> -->
         <input type="submit" value="Submit" />
       </form>
       <div id="predicted-price">
         <h4>Predicted Price</h4>
-        <!-- {{predicted_value}} -->
         <h2 id="predicted-value">{{predicted_value}}</h2>
       </div>
     </div>

@@ -9,24 +9,47 @@ h1,h3{
 }
 h4 {
     background-color: rgb(151, 179, 179);
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
 }
 .prediction-container{
-    margin: 2rem;
+    margin: 1rem;
     width: 80vw;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    gap: 2px;
 }
-
-#input-values {
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    /* align-items: center; */
+}
+label{
     display: block;
-    float: left;
-    grid-column-start: 1;
-    grid-column-end: 2;
+}
+input[type='number'] {
+    display: block;
+    grid-column: 1/3;
+    background-color: indianred;
+    margin:10px 0px 10px 0px;
+    
+}
+input[type='submit']{
+    grid-column: 1/3;
+}
+select {
+    /* margin:10px 0px 10px 0px; */
+    grid-column: 1/2;
+    display: block;
+    background-color: khaki;
+    text-align: center;
 }
 #predicted-price{
-    grid-column-start: 3;
-    grid-column-end: 3;
+    grid-column: 2/2;
+    /* grid-row: 1/2; */
+    background-color: palegreen;
+}
+[type='number']:hover{
+    background-color: goldenrod;
 }
