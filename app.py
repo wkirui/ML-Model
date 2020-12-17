@@ -19,9 +19,9 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     guests = request.form.get('guests', type=int)
-    bedrooms = request.form.get('bedrooms', type=str)
-    beds = request.form.get('beds', type=str)
-    bathrooms = request.form.get('bathrooms', type=str)
+    bedrooms = request.form.get('bedrooms', type=int)
+    beds = request.form.get('beds', type=int)
+    bathrooms = request.form.get('bathrooms', type=int)
     total_reviews = request.form.get('total-reviews', type=int)
     review_score = request.form.get('review-score', type=int)
     kitchen = request.form.get('kitchen', type=str)
