@@ -1,7 +1,6 @@
 # a flask app 
 from flask import Flask
-from flask import render_template
-from flask import request, redirect
+from flask import render_template, request,jsonify, redirect
 import pandas as pd
 import numpy as np
 import pickle
@@ -72,6 +71,30 @@ def predict():
                            kitchen = kitchen,shared_bath = shared_bath,
                            wifi = wifi, free_parking = parking, pool = pool)
     
-    # return redirect('/')
+
+# define api
+@app.route('/resultsApi', methods =['POST'])
+def resultsApi():
+    data = request.get_json(force=True)
+    
+    data_df = pd.DataFrame(data,index=[0])
+    # tranform data
+    data_df_tf = pd.get_dummies(data_df)
+    
+    # check missing features
+    request_features = [x for x in data_df_tf.columns]
+    missing_features = [x for x in features_list if x not in api_features]
+    
+    # add those features as dummy data
+    data_df_tf[missing_features] = 0
+    
+    # drop features missing from the model
+    extra_columns_to_drop = [x for x in request_features if x not in features_list]
+    data_df_tf = data_df_tf.drop(extra_columns_to_drop,axis=1)
+    
+    prediction = np.round(model.predict(data_df_tf)[0],0)
+    
+    return jsonify(prediction)
+
 if __name__ == "__main__":
     app.run()
