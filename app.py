@@ -20,7 +20,7 @@ def home():
 def predict():
     guests = request.form.get('guests', type=int)
     bedrooms = request.form.get('bedrooms', type=str)
-    beds = request.form.get('beds', type=int)
+    beds = request.form.get('beds', type=str)
     bathrooms = request.form.get('bathrooms', type=str)
     total_reviews = request.form.get('total-reviews', type=int)
     review_score = request.form.get('review-score', type=int)
@@ -76,14 +76,14 @@ def predict():
 @app.route('/resultsApi', methods =['POST'])
 def resultsApi():
     data = request.get_json(force=True)
-    
     data_df = pd.DataFrame(data,index=[0])
+    
     # tranform data
     data_df_tf = pd.get_dummies(data_df)
     
     # check missing features
     request_features = [x for x in data_df_tf.columns]
-    missing_features = [x for x in features_list if x not in api_features]
+    missing_features = [x for x in features_list if x not in request_features]
     
     # add those features as dummy data
     data_df_tf[missing_features] = 0
@@ -93,8 +93,8 @@ def resultsApi():
     data_df_tf = data_df_tf.drop(extra_columns_to_drop,axis=1)
     
     prediction = np.round(model.predict(data_df_tf)[0],0)
-    
-    return jsonify(prediction)
+    print('$', prediction)
+    return jsonify('$'+str(prediction))
 
 if __name__ == "__main__":
     app.run()
