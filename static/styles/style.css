@@ -4,7 +4,6 @@ body{
 }
 h1,h3{
     margin: 5px;
-    /* font-weight: 400; */
 }
 h4 {
     font-size: 22px;
@@ -58,7 +57,6 @@ select {
     display: block;
     background-color: rgb(141, 206, 122);
     width: 150px;
-    /* text-align: center; */
     margin: 0px 5px 0px 0px;
 }
 #predicted-price{
@@ -89,10 +87,6 @@ table {
     border-spacing: 1px;
     box-sizing: border-box;
 }
-/* #prediction-table3 {
-    border-collapse: collapse;
-
-} */
 th,td {
     padding: 1px;
     font-size: 12px;
