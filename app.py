@@ -65,7 +65,6 @@ def predict():
     
     # make prediction
     predicted_price = np.round(model.predict(new_submission_tf)[0],0)
-    print('$'+str(predicted_price))
     
     # update values html
     return render_template('index.html', 
@@ -103,8 +102,8 @@ def resultsApi():
     data_df_tf = scaler.transform(data_df_tf)
     
     prediction = np.round(model.predict(data_df_tf)[0],0)
-    print('$', prediction)
+    
     return jsonify('$'+str(prediction))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
