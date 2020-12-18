@@ -4,6 +4,7 @@ from flask import render_template, request,jsonify, redirect
 import pandas as pd
 import numpy as np
 import pickle
+from sklearn.preprocessing import MinMaxScaler
 
 app = Flask(__name__)
 # load model
@@ -11,6 +12,7 @@ model = pickle.load(open('models/model_v1.pkl','rb'))
 # load model features
 features_df = pd.read_csv('models/feature_importances.csv')
 features_list = [x for x in features_df['feature']]
+scale_data = pd.read_csv('models/X_train_data.csv')
 
 @app.route('/')
 def home():
@@ -41,11 +43,9 @@ def predict():
         'shared_bath': shared_bath}
     # create df
     new_submission = pd.DataFrame(results_dict,index=[0])
-    # print("Below is a new submission: ",'\n', new_submission)
     
     # tranform data
     new_submission_tf = pd.get_dummies(new_submission)
-    # print(new_submission_tf)
     
     # check missing features
     submission_features = [x for x in new_submission_tf.columns]
@@ -57,6 +57,11 @@ def predict():
     # drop features missing from the model
     extra_columns_to_drop = [x for x in submission_features if x not in features_list]
     new_submission_tf = new_submission_tf.drop(extra_columns_to_drop,axis=1)
+    
+    transform_cols = ['guests','bedrooms','beds','baths','reviews','rating']
+    scaler = MinMaxScaler()
+    X_train = scaler.fit_transform(scale_data)
+    new_submission_tf = scaler.transform(new_submission_tf)
     
     # make prediction
     predicted_price = np.round(model.predict(new_submission_tf)[0],0)
@@ -91,6 +96,11 @@ def resultsApi():
     # drop features missing from the model
     extra_columns_to_drop = [x for x in request_features if x not in features_list]
     data_df_tf = data_df_tf.drop(extra_columns_to_drop,axis=1)
+    
+    scaler = MinMaxScaler()
+    X_train = scaler.fit_transform(scale_data)
+    transform_cols = ['guests','bedrooms','beds','baths','reviews','rating']
+    data_df_tf = scaler.transform(data_df_tf)
     
     prediction = np.round(model.predict(data_df_tf)[0],0)
     print('$', prediction)
