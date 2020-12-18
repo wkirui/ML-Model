@@ -5,7 +5,9 @@ The user interface consist of a submission form for apartment properties submiss
 The model is deployed in [heroku](https://naimodel.herokuapp.com/)
 
 Form:
+
 ![form](/img/submission_form.png)
 
 Prediction section:
+
 ![predicted](/img/predicted_price.png)
