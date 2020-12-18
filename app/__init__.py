@@ -8,11 +8,11 @@ from sklearn.preprocessing import MinMaxScaler
 
 app = Flask(__name__)
 # load model
-model = pickle.load(open('models/model_v1.pkl','rb'))
+model = pickle.load(open('app/models/model_v1.pkl','rb'))
 # load model features
-features_df = pd.read_csv('models/feature_importances.csv')
+features_df = pd.read_csv('app/models/feature_importances.csv')
 features_list = [x for x in features_df['feature']]
-scale_data = pd.read_csv('models/X_train_data.csv')
+scale_data = pd.read_csv('app/models/X_train_data.csv')
 
 @app.route('/')
 def home():
