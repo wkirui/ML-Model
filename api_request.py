@@ -1,6 +1,6 @@
 import requests
-# url = 'http://localhost:8000/resultsApi'
-url = 'https://naimodel.herokuapp.com/resultsApi'
+url = 'http://127.0.0.1:5000/resultsApi'
+# url = 'https://naimodel.herokuapp.com/resultsApi'
 
 r =  requests.post(url, 
                    json={'guests': 4,'bedrooms': 2,
