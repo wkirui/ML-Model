@@ -13,12 +13,14 @@
   </head>
   <body>
     <h1>Machine Learning in Python</h1>
-    <h3>
-      This model uses data scraped from Airbnb website to predict prices for
-      Airbnb prices in Nairobi. The model is trained using a RandomForest
-      Regression algorithm.
-    </h3>
-    <p id="form-intro-p">Please enter the values below to make a prediction</p>
+    <div id="form-intro-p">
+      <p>
+        This model uses data scraped from Airbnb website to predict prices for
+        Airbnb prices in Nairobi. The model is trained using a RandomForest
+        Regression algorithm.
+      </p>
+      <p>Please enter the values below to make a prediction</p>
+    </div>
     <div class="prediction-container">
       <form action="/predict" method="POST">
         <label

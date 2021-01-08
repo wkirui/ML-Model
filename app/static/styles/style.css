@@ -17,7 +17,7 @@ h5 {
     margin-left: 30px;
 }
 #form-intro-p {
-    margin-left: 20px;
+    width: 60vw;
 }
 
 .prediction-container{
@@ -99,4 +99,44 @@ th,td {
 }
 th{
     text-align: left;
+}
+@media (max-width:680px){
+body{
+    width: 100%;
+    margin: 0px 5px 20px 5px;
+}
+.prediction-container{
+    /* margin: 1rem; */
+    width: 100%;
+    display: block;
+    margin: 5px 10px 5px 10px;
+    /* display: grid; */
+    /* grid-template-columns: 1fr; */
+    /* gap: 2px; */
+}
+h1,h3{
+    margin: 0px 20px 0px 20px;
+    width: 100%;
+}
+h4 {
+    font-size: 18px;
+    text-align: left;
+    margin-left: 5px;
+}
+h5 {
+    font-size: 16px;
+    text-align: left;
+    margin-left: 50px;
+}
+#form-intro-p {
+    width: 100%;
+}
+
+#predicted-header {
+    text-align: left;
+    margin-left: 30px;
+    /* margin-top:30px; */
+    padding-top: 30px;
+    padding-bottom: 0;
+}
 }
